@@ -14,7 +14,7 @@ const Card = () => {
 //    console.log(datas)
 
     return (
-       <div className='grid grid-cols-3 gap-5 m-5'>
+       <div className='grid grid-cols-1 lg:grid-cols-3 lg:px-12 md-mx-5 gap-5 m-5 rounded-3xl'>
       
        {/* {
         datas.map( data => <singleData key={data.id} name={data.name}> </singleData>)
