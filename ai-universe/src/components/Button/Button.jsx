@@ -6,7 +6,7 @@ const Button = (props) => {
   const { children } = props;
   return (
     <>
-      <div className="text-center my-5">
+      <div className="flex justify-center items-center my-5 mx-auto">
         <button className="btn btn-primary">{children}</button>
       </div>
     </>
