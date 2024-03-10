@@ -2,11 +2,22 @@
 import React, { useEffect, useState } from "react";
 import SingleData from "../singleData/SingleData";
 import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 
 const Card = () => {
   const [datas, setdata] = useState([]);
   const [showAll, setshowAll] = useState(false);
-  const [btnText, setbtnText] = useState("Show All..........");
+  const [uniqueId, setUniqueId] = useState(null);
+  const [singleData, setSingleData] = useState({});
+
+  // console.log(uniqueId);
+
+  useEffect( () => {
+    fetch(`https://openapi.programming-hero.com/api/ai/tool/${uniqueId}`)
+    .then(res => res.json())
+    .then(data => setSingleData(data.data));
+  } ,[uniqueId])
+
 
   useEffect(() => {
     fetch("https://openapi.programming-hero.com/api/ai/tools")
@@ -22,7 +33,7 @@ const Card = () => {
 
     
         {datas.slice(0,showAll ? 12 : 5).map((data) => (
-          <SingleData key={data.id} data={data}></SingleData>
+          <SingleData key={data.id} data={data} setUniqueId={setUniqueId}></SingleData>
         ))}
       </div>
 
@@ -45,7 +56,8 @@ const Card = () => {
         )
 
      }
-      
+
+     <Modal data ={singleData}></Modal>
     </>
   );
 };
