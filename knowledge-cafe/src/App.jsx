@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header/Header'
 import Blogs from './components/Blogs/Blogs'
@@ -15,7 +13,14 @@ function App() {
     const newBlog = [...bookmarks, blog]
     setBookmark(newBlog);
   }
-  console.log(bookmarks);
+  // console.log(bookmarks);
+
+  const [time, setTime] = useState(0);
+
+  const updateTime = n => {
+        setTime(time+n)
+        // console.log(`i got ${n} and newtime=${newtime}`)
+  }
 
   return (
     <>
@@ -24,10 +29,10 @@ function App() {
 
      <div className='grid md:grid-cols-3  mx-4'>
       <div className=' md:col-span-2'>
-      <Blogs addBookmark={addBookmark}></Blogs>
+      <Blogs addBookmark={addBookmark} updateTime={updateTime}></Blogs>
       </div>
       <div className=''>
-      <Bookmark bookmarkList={bookmarks}></Bookmark>
+      <Bookmark bookmarkList={bookmarks} time={time}></Bookmark>
       </div>
      </div>
     </>

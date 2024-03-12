@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Blog from '../Blog/Blog';
 
-const Blogs = ({addBookmark}) => {
+const Blogs = ({addBookmark,updateTime}) => {
 
     // console.log(addBookmark)
 
@@ -22,6 +22,7 @@ const Blogs = ({addBookmark}) => {
                     blog = {blog}
                     key = {blog.id}
                     addBookmark = {addBookmark}
+                    updateTime ={updateTime}
                     > </Blog>)
             }
             

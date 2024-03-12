@@ -1,33 +1,15 @@
 import React, { useState } from 'react';
 
-const Bookmark = ({bookmarkList}) => {
+const Bookmark = (props) => {
     // console.log(props.blogList)
-    console.log(bookmarkList)
+
+    const {bookmarkList, time} = props;
     
    
-    const [time , setTime] = useState(0);
-
-     // {   let totalTime = 0;
-    //     bookmarkList.forEach(blog => {
-    //         // console.log(blog.minute);
-    //         totalTime += blog.minute;
-    //     });
-
-    //     console.log(totalTime);
-    // }
-    const timeUpdate = (blogList) => {
-        let totalTime = 0;
-        blogList.forEach(blog => {
-            totalTime+=blog.minute;
-        });
-        setTime(totalTime);
-
-    }
-
     return (
         <>
-            <div className='w-5/6 p-3 my-2 shadow border text-purple-700 bg-purple-100 rounded-md'>
-                <h2 className=' text-xl font-semibold text-center'>Spend Time on read: {time} min </h2>
+            <div className='w-5/6 p-3 my-2 shadow border text-purple-700 bg-purple-100 rounded-md sm:mx-auto'>
+                <h2 className=' text-xl font-semibold text-center'>Spend Time on read: {time} </h2>
             </div>
 
             <div>

@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Blog = (props) => {
   // console.log(props.blog);
   const { author, image, title, minute, date } = props.blog;
-  const {addBookmark} = props;
+  const {addBookmark, updateTime} = props;
   // console.log(addBookmark);
-
+  // console.log(updateTime)
+   
+ 
   return (
     <>
-      <div className="my-2 mx-8 mb-10">
+      <div className="my-2 mx-8 mb-10 shadow-md rounded-sm p-2">
         <img className="w-11/12 my-1 rounded-md" src={image} alt="" />
 
         <div className="flex items-center justify-between p-2 w-11/12">
@@ -36,6 +38,9 @@ const Blog = (props) => {
 
         <div className="w-11/12 p-1 m-1">
              <h1 className="text-3xl font-semibold">{title}</h1>
+
+             <p onClick={()=> {updateTime(minute)}} className="underline text-blue-500 p-1 cursor-pointer">Mark as read</p>
+            
         </div>
        
       </div>
