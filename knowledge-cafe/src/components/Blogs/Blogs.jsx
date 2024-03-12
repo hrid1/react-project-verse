@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Blog from '../Blog/Blog';
 
-const Blogs = () => {
+const Blogs = ({addBookmark}) => {
+
+    // console.log(addBookmark)
 
     const [blogs, setBlogs] = useState([]);
     useState( () => {
@@ -19,6 +21,7 @@ const Blogs = () => {
                 blogs.map(blog => <Blog 
                     blog = {blog}
                     key = {blog.id}
+                    addBookmark = {addBookmark}
                     > </Blog>)
             }
             

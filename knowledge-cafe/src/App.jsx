@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,7 +7,15 @@ import Blogs from './components/Blogs/Blogs'
 import Bookmark from './components/Bookmark/Bookmark'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [bookmarks, setBookmark] = useState([]);
+  const addBookmark = (blog) => {
+    // console.log(blog.id);
+    
+    const newBlog = [...bookmarks, blog]
+    setBookmark(newBlog);
+  }
+  console.log(bookmarks);
 
   return (
     <>
@@ -16,10 +24,10 @@ function App() {
 
      <div className='grid md:grid-cols-3  mx-4'>
       <div className=' md:col-span-2'>
-      <Blogs></Blogs>
+      <Blogs addBookmark={addBookmark}></Blogs>
       </div>
-      <div className=''>is
-      <Bookmark></Bookmark>
+      <div className=''>
+      <Bookmark bookmarkList={bookmarks}></Bookmark>
       </div>
      </div>
     </>
