@@ -10,7 +10,7 @@ const LeftsideNav = () => {
   }, []);
 
   return (
-    <div className="border p-2 rounded">
+    <div className=" p-2 rounded">
       <h2 className="text-2xl">All Category: {category.length}</h2>
 
       <div className=" space-y-6">

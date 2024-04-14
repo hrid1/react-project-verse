@@ -7,9 +7,9 @@ import qzon3 from '../../assets/qZone3.png'
 
 const RightsideNav = () => {
   return (
-    <div className="border">
+    <div >
       <div className="p-4 space-y-3 mb-6" >
-        <h2 className="text-2xl">Login With</h2>
+        <h2 className="text-2xl font-semibold">Login With</h2>
         <button className="btn outline w-full">
           <FaGoogle></FaGoogle>
           Sign in with Google
@@ -20,7 +20,7 @@ const RightsideNav = () => {
         </button>
       </div>
       <div className="p-4 space-y-3 mb-6" >
-        <h2 className="text-2xl">Find Us on</h2>
+        <h2 className="text-2xl font-semibold">Find Us on</h2>
        <div>
        <a href="/facebook.com" className="flex items-center gap-3 text-xl border p-4 rounded-t-md ">
             <FaFacebook/>
@@ -40,7 +40,7 @@ const RightsideNav = () => {
 
       {/* Q zone */}
       <div className="p-4 space-y-3 mb-6">
-        <h2 className="text-3xl">Q Zone</h2>
+        <h2 className="text-3xl font-semibold">Q Zone</h2>
 
         <img src={qzon1} alt="" />
         <img src={qzon2} alt="" />
