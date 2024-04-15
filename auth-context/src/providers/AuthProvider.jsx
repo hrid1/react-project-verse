@@ -1,7 +1,12 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import { IoAppsSharp } from "react-icons/io5";
 
 export const AuthContext = createContext(null);
 
@@ -9,6 +14,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -16,23 +22,31 @@ const AuthProvider = ({ children }) => {
 
   const loginUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
-  }
+  };
+  //   sign out
 
-  useEffect( () => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
-        console.log("Auth state change:", currentUser)
-        setUser(currentUser);
+  const logOut = () => {
+    return signOut(auth);
+  };
+
+  //   observe auth state change
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (createUser) => {
+      console.log("Auth state change: ", createUser);
+      setUser(createUser);
+      setLoading(false);
     });
     return () => {
-        unsubscribe();
-    }
-  })
+      unSubscribe();
+    };
+  }, []);
 
   const authInfo = {
     user,
-    setUser,
+    loading,
     createUser,
     loginUser,
+    logOut,
   };
 
   return (
