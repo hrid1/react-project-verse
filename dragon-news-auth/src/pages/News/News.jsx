@@ -3,9 +3,11 @@ import Header from "../../shared/Header";
 import Navbar from "../../shared/Navbar";
 import RightsideNav from "../../shared/RightsideNav/RightsideNav";
 
-const News = () => {
 
-    const {id} = useParams();
+const News = () => {
+  const { id } = useParams();
+
+
 
   return (
     <div className="">
@@ -14,16 +16,19 @@ const News = () => {
       <div className="grid md:grid-cols-4">
         {/* left side */}
         <div className="col-span-3">
+          <h2 className="text-3xl bold">News Details</h2>
+          <p>{id}</p>
 
-            <h2 className="text-3xl bold">News Details</h2>
-            <p>{id}</p>
-    
+          {/* {
+              fetch('news.json')
+              .then(res => res.json())
+              .then(data => console.log(data))
+            } */}
         </div>
 
         {/* right side */}
         <div>
-            <RightsideNav></RightsideNav>
-
+          <RightsideNav></RightsideNav>
         </div>
       </div>
     </div>

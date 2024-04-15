@@ -15,7 +15,7 @@ const Career = () => {
           </p>
           <p className="text-lg mb-4">
             Our news website is always on the lookout for talented individuals
-            who are dedicated to excellence and innovation. Whether you're a
+            who are dedicated to excellence and innovation. Whether youre a
             seasoned journalist, a skilled designer, a tech-savvy developer, or
             have expertise in any other relevant field, we encourage you to
             explore our current job openings and consider joining us on our
