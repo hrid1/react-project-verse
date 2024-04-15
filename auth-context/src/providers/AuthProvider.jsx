@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { createContext, useState } from "react";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 import { IoAppsSharp } from "react-icons/io5";
 
@@ -17,6 +17,16 @@ const AuthProvider = ({ children }) => {
   const loginUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   }
+
+  useEffect( () => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+        console.log("Auth state change:", currentUser)
+        setUser(currentUser);
+    });
+    return () => {
+        unsubscribe();
+    }
+  })
 
   const authInfo = {
     user,

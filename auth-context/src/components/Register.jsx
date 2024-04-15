@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 const Register = () => {
 
-  const {createUser, setUser} = useContext(AuthContext);
+  const {createUser} = useContext(AuthContext);
 
 
   const handleRegister = event => {
@@ -19,7 +19,6 @@ const Register = () => {
     createUser(email, password)
     .then(result => {
       console.log(result.user)
-      setUser(result.user.email);
     })
     .catch(error => console.log(error.message))
     
