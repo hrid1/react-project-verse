@@ -6,10 +6,10 @@ import Slidebar from "../components/Slidebar";
 
 const Home = () => {
     return (
-        <div className="h-screen w-full flex items-center justify-center ">
+        <div className="h-screen flex items-center justify-center ">
             
 
-            <div className="w-3/4 h-5/6 bg-gray-600 grid grid-cols-3 rounded-lg overflow-hidden">
+            <div className="w-3/4 h-5/6  bg-gray-600 grid grid-cols-3 rounded-lg overflow-hidden ">
                 {/* slide bar section */}
                
                <Slidebar></Slidebar>

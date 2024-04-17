@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import logimg from '/login-img.png'
 
 
 const Login = () => {
     return (
-        <div className="min-h-screen flex justify-center items-center">
+        <div className="min-h-screen flex justify-center items-center gap-5">
       <div className="bg-gray-900 p-8 rounded-lg shadow-md w-96">
 
         <h3 className="text-2xl font-bold text-center mb-4 text-blue-400">
@@ -48,8 +49,12 @@ const Login = () => {
           </div>
         </form>
 
-        <p className="my-2">You dont have an account? <Link className="text-blue-400" to='/login'>Register</Link></p>
+        <p className="my-2">You dont have an account? <Link className="text-blue-400" to='/register'>Register</Link></p>
       </div>
+
+      {/* img */}
+
+      {/* <img className="w-1/3" src={logimg} alt="" /> */}
     </div>
     );
 };

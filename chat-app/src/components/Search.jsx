@@ -2,7 +2,7 @@ import user from "/avatorProfle.png";
 
 const Search = () => {
   return (
-    <div className="bg-slate-800 h-screen">
+    <div className="bg-slate-800 h-full">
       <input
         className="w-full border-b p-2 h-10 outline-none bg-slate-800"
         placeholder="Find a User"
