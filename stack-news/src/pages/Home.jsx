@@ -11,18 +11,18 @@ const Home = () => {
 
             <Header></Header>
             <BreakingNews></BreakingNews>
-            
+
             <Navbar></Navbar>
             <h1>This is Homepage</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div className=" border col-span-1">
+                <div className=" border border-blue-500 col-span-1">
                     <LeftsideNav></LeftsideNav>
                 </div>
                 <div className="bg-green-500 col-span-2">
                     News Coming soon 
                 </div>
-                <div className="border col-span-1">
+                <div className="col-span-1">
                     <RightsideNav></RightsideNav>
                 </div>
             </div>

@@ -15,6 +15,12 @@ const Navbar = () => {
       <li>
         <NavLink to="/career">Career</NavLink>
       </li>
+      <li>
+        <NavLink to="/login">Login</NavLink>
+      </li>
+      <li>
+        <NavLink to="/register">Register</NavLink>
+      </li>
     </>
   );
   return (
@@ -39,8 +45,15 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          ></ul>
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-300 rounded-box w-52 "
+            
+          >
+
+{
+  navItem
+}
+
+          </ul>
         </div>
         {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
       </div>
@@ -50,7 +63,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className="flex gap-2">
           <img className="w-8 h-8 rounded-full " src={user} alt="" />
-          <Link>
+          <Link to='/login'>
             <button className="btn btn-sm btn-ghost bg-gray-400  rounded-none px-6 ">
               Login
             </button>
