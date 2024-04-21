@@ -1,17 +1,79 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import Navbar from "../shared/Navbar";
 
 const Register = () => {
+
+  const {createUser} = useContext(AuthContext);
+    // console.log(createUser);
+
+    const handleRegister = e => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const photo = e.target.photo.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        createUser(email, password)
+        .then(result => {
+          console.log(result.user);
+        })
+        .catch(error => {
+          console.log(error.message);
+        }) 
+        
+
+        // console.log(email, password, name, photo);
+       
+        
+    }
+
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-500 py-12 px-4 sm:px-6 lg:px-8">
+   <>
+
+   <Navbar></Navbar>
+   
+   <div className="min-h-screen flex items-center justify-center bg-gray-500 py-12 px-4 sm:px-6 lg:px-8">
+      
       <div className="max-w-md w-full space-y-8 bg-slate-300 p-8 rounded-lg">
         <div >
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Create an account
           </h2>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form onSubmit={handleRegister} className="mt-8 space-y-6" action="#" method="POST">
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+              <label htmlFor="name" className="sr-only">
+                Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="name"
+                autoComplete="name"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-300 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Name "
+              />
+            </div>
+            <div>
+              <label htmlFor="Photo-Url" className="sr-only">
+                Photo-Url
+              </label>
+              <input
+                id="Photo-Url"
+                name="photo"
+                type="photo"
+                autoComplete="photo"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-300 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Photo URl "
+              />
+            </div>
             <div>
               <label htmlFor="email-address" className="sr-only">
                 Email address
@@ -23,7 +85,7 @@ const Register = () => {
                 autoComplete="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-300 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
+                placeholder="Email "
               />
             </div>
             <div>
@@ -65,6 +127,7 @@ const Register = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 
